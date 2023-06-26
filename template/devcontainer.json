@@ -1,0 +1,52 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.241.1/containers/javascript-node
+{
+  "name": "Dev environment",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "runArgs": [
+    "--init",
+    "-it",
+    "--env-file",
+    ".devcontainer/devcontainer.env"
+  ],
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ],
+  "overrideCommand": false,
+  // Configure tool-specific properties.
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        // formatting/linting extensions
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "EditorConfig.EditorConfig",
+        // spell checker
+        "streetsidesoftware.code-spell-checker",
+        // coding convinience
+        "formulahendry.auto-rename-tag",
+        "aaron-bond.better-comments",
+        "yoavbls.pretty-ts-errors",
+        // git convinience
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+        "github.vscode-pull-request-github"
+      ]
+    }
+  },
+  "settings": {
+    "terminal.integrated.profile.linux": "/bin/bash",
+    "editor.tabSize": 2,
+    "files.eol": "\n",
+    "extensions.autoUpdate": false
+  },
+  // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  "remoteUser": "dev",
+  "postCreateCommand": "bash -i .devcontainer/postCreateCommand.sh",
+  "postStartCommand": "bash -i .devcontainer/postStartCommand.sh",
+  "initializeCommand": "bash -i .devcontainer/initializeCommand.sh"
+}
