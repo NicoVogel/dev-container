@@ -35,5 +35,6 @@ Feel free to open issues if you encounter any problems or have suggestions. Cont
 
 ## License
 
-TODO
-[MIT](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+[MIT](./LICENSE)
